@@ -1,7 +1,7 @@
 package models
 
 import (
-"./internal/database/db"
+
 
 
 )
@@ -34,6 +34,7 @@ type Driver struct {
 // This will return all the active drivers.
 func AllActiveDrivers() ([]Driver, error) {
 	db := GetDB()
+
 	drivers := []Driver{}
 	qry := `select id, code, forename, surname, active, image from polls_driver where active is true`
 	rows, err := db.Query(qry)
@@ -61,6 +62,7 @@ func AllActiveDrivers() ([]Driver, error) {
 
     return drivers, nil
 }
+
 
 
 
