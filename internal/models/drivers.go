@@ -2,8 +2,7 @@ package models
 
 import (
 
-
-
+	db "github.com/myertek/echotest/internal/database"
 )
 
 // Define a Driver type to hold the data for an individual Driver.
@@ -33,18 +32,16 @@ type Driver struct {
 
 // This will return all the active drivers.
 func AllActiveDrivers() ([]Driver, error) {
-	db := GetDB()
+	db := db.GetDB()
 
 	drivers := []Driver{}
-	qry := `select id, code, forename, surname, active, image from polls_driver where active is true`
+	qry := `select id, code, forename, surname, active, image from driver where active is true`
 	rows, err := db.Query(qry)
 	if err != nil {
 		//logger.Info("Query failed: ", err)
 		return nil, err
 	}
 	
-	
-
 	for rows.Next(){
 		var d Driver
 
@@ -57,8 +54,6 @@ func AllActiveDrivers() ([]Driver, error) {
 	}
 	
 	defer rows.Close()
-	
-
 
     return drivers, nil
 }
