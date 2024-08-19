@@ -15,7 +15,11 @@ func main() {
 	db.InitDB()
 
 	t := &Template{
-		templates: template.Must(template.ParseFiles("ui/html/pages/index.html")),
+		templates: template.Must(template.ParseFiles(
+			"ui/html/pages/index.html",
+			"ui/html/pages/driver.html",
+			"ui/html/pages/race.html",
+			"ui/html/pages/predictions.html")),
 	}
 	e.Renderer = t
 	e.Static("/img", "static")
@@ -26,7 +30,7 @@ func main() {
 }
 
 type Template struct {
-    templates *template.Template
+	templates *template.Template
 }
 
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {

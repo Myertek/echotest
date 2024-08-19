@@ -6,6 +6,8 @@ import "github.com/myertek/echotest/internal/models"
 // any dynamic data that we want to pass to our HTML templates.
 
 type templateData struct {
-	Driver models.Driver
-    Drivers []models.Driver
+	Driver      models.Driver
+	Drivers     []models.Driver
+	Races       []models.Race
+	Predictions []models.Prediction
 }

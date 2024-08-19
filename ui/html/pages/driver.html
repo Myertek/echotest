@@ -1,4 +1,4 @@
-{{define "index"}}
+{{define "driver"}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,8 @@
     <title>Drivers</title>
 </head>
 <body>
-    <h2>List of Drivers</h2>
-    {{if .Drivers}}
+    <h2>Edit Driver</h2>
+    {{if .Driver}}
      <table>
         <tr>
             <th>ID</th>
@@ -18,15 +18,15 @@
             <th>Surname</th>
             <th>Image</th>
         </tr>
-        {{range .Drivers}}
+        
         <tr>
-            <td><a href="/driver/{{.ID}}">#{{.ID}}</a></td>
-            <td>{{.Code}}</td>
-            <td>{{.Forename}}</td>
-            <td>{{.Surname}}</td>
-            <td><img src="/img/images/{{.Image}}" style="width:60px;height:60px;" alt="{{.Image}}"></td>
+            <td>#{{.Driver.ID}}</a></td>
+            <td>{{.Driver.Code}}</td>
+            <td>{{.Driver.Forename}}</td>
+            <td>{{.Driver.Surname}}</td>
+            <td><img src="/img/images/{{.Driver.Image}}" style="width:60px;height:60px;" alt="{{.Driver.Image}}"></td>
         </tr>
-        {{end}}
+    
     </table>
     {{else}}
         <p>There's nothing to see here... yet!</p>

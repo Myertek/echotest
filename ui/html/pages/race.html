@@ -1,0 +1,43 @@
+{{define "race"}}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Races</title>
+	</head>
+	<body>
+		<h2>List of Races</h2>
+		{{if .Races}}
+		<table>
+			<tr>
+				<th>Round</th>
+				<th>name</th>
+				<th>location</th>
+				<th>Date</th>
+				<th>Image</th>
+			</tr>
+			{{range .Races}}
+			<tr>
+				<td>{{.Round}}</td>
+				<td>{{.Name}}</td>
+				<td>{{.Location}}</td>
+				<td>{{.Datetime}}</td>
+				<td>
+					<img
+						src="/img/images/{{.Image}}"
+						style="width: 60px; height: 60px"
+						alt="{{.Image}}"
+					/>
+				</td>
+			</tr>
+			{{end}}
+		</table>
+		{{else}}
+		<p>There's nothing to see here... yet!</p>
+		{{end}}
+	</body>
+</html>
+
+{{end}}

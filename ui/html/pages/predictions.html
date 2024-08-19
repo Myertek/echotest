@@ -1,0 +1,38 @@
+{{define "predictions"}}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Predictions</title>
+	</head>
+	<body>
+		<h2>List of Predictions</h2>
+		{{if .Predictions}}
+		<table>
+			<tr>
+				<th>Round</th>
+				<th>name</th>
+				<th>location</th>
+				<th>Date</th>
+				<th>Image</th>
+			</tr>
+			{{range .Predictions}}
+			<tr>
+				<td>{{.ID}}</td>
+				<td>{{.p1_id}}</td>
+				<td>{{.p2_id}}</td>
+				<td>{{.p3_id}}</td>
+				<td>{{.p4_id}}</td>
+				<td>{{.p5_id}}</td>
+			</tr>
+			{{end}}
+		</table>
+		{{else}}
+		<p>There's nothing to see here... yet!</p>
+		{{end}}
+	</body>
+</html>
+
+{{end}}
