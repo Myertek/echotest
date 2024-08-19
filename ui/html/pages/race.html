@@ -20,7 +20,12 @@
 			</tr>
 			{{range .Races}}
 			<tr>
-				<td>{{.Round}}</td>
+                {{if eq .Round 999}}
+                    <td>SR</td>
+                {{else}}
+                    <td>{{.Round}}</td>
+                {{end}}
+				
 				<td>{{.Name}}</td>
 				<td>{{.Location}}</td>
 				<td>{{.Datetime}}</td>

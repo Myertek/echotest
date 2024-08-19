@@ -1,7 +1,6 @@
 .env
 .air.toml
 .vscode
-/static/images/drivers
-/static/images/tracks
+/static/images/
 /tmp
 /cmd/web/tmp
